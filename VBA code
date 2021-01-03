@@ -1,0 +1,39 @@
+Sub GetPrime()
+    'This program will print out all the prime numbers until iEnd
+    
+    '=============Set this as the maximum value you want to stop at
+    iend = 33
+    '============================
+    
+    Cells(1, "A").Value = 2
+    Cells(2, "A").Value = 3
+    iRow = 3
+    iSwitch = 0
+        
+    For i = 4 To iend
+    
+        iSwitch = 1
+        
+        For j = 1 To Cells(Rows.Count, "A").End(xlUp).Row
+                      
+            a = i Mod Cells(j, "A").Value
+            
+            If a = 0 Then
+            
+                iSwitch = 0
+                Exit For
+                
+            End If
+        
+        Next j
+        
+        If iSwitch = 1 Then
+        
+            Cells(iRow, "A").Value = i
+            iRow = iRow + 1
+            
+        End If
+    
+    Next i
+
+End Sub
